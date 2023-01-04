@@ -66,19 +66,19 @@ export const AppProvider = (props: any) => {
       id: 11,
       userName: "Alice",
       msgText: "Hello, world!",
-      timeStamp: 1623478219,
+      timeStamp: 1623478269,
     },
     {
       id: 12,
       userName: "Bob",
       msgText: "Hi, Alice!",
-      timeStamp: 1623478221,
+      timeStamp: 1623478269,
     },
     {
       id: 13,
       userName: "Charlie",
       msgText: "Hello, everyone!",
-      timeStamp: 1623478223,
+      timeStamp: 1623478269,
     },
     {
       id: 14,
