@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Users as UsersIcon, User, Search } from "tabler-icons-react";
 import { Combobox, Dialog, Transition } from "@headlessui/react";
 import { useAppStore, IUser } from "../hooks/app.provider";
@@ -11,8 +11,21 @@ export default function CommandPallete() {
   const appStore = useAppStore();
   const [query, setQuery] = useState("");
 
+
+  useEffect(() => {
+    const handleKeyDown = (event: any) => {
+      if (event.key === 'k' && (event.metaKey || event.ctrlKey)) {
+        appStore.setOpenCP((v: boolean)=> !v)
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [])
+
   const recent = [appStore.users[0]];
-  console.log(recent)
   const filteredPeople =
     query === ""
       ? []
