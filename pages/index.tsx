@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import ChannelBlock from "../components/ChannelBlock"
+import CommandPallete from "../components/CommandPallete"
 import InboxBody from "../components/InboxBody"
 import Sidebar from "../components/Sidebar"
 import { AppProvider } from "../hooks/app.provider"
@@ -12,6 +13,7 @@ export default function Home() {
         <Sidebar />
         <ChannelBlock />
         <InboxBody/>
+        <CommandPallete />
       </div>
     </AppProvider>
   )

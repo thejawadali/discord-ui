@@ -23,6 +23,8 @@ export const AppProvider = (props: any) => {
     { name: "Karen", id: 11, online: false },
   ]);
 
+  const [openCP, setOpenCP] = useState<boolean>(true)
+
   const messages = [
     {
       id: 1,
@@ -84,6 +86,30 @@ export const AppProvider = (props: any) => {
       msgText: "Hi, Charlie!",
       timeStamp: 1623478225,
     },
+    {
+      id: 111,
+      userName: "Alice",
+      msgText: "Hello, world!",
+      timeStamp: 1623478219,
+    },
+    {
+      id: 121,
+      userName: "Bob",
+      msgText: "Hi, Alice!",
+      timeStamp: 1623478221,
+    },
+    {
+      id: 131,
+      userName: "Charlie",
+      msgText: "Hello, everyone!",
+      timeStamp: 1623478223,
+    },
+    {
+      id: 141,
+      userName: "Dave",
+      msgText: "Hi, Charlie!",
+      timeStamp: 1623478225,
+    },
   ]
 
   const [activeUser, setActiveUser] = useState<IUser>({
@@ -93,7 +119,7 @@ export const AppProvider = (props: any) => {
   });
 
   return (
-    <AppContext.Provider value={{ users, setActiveUser, messages, activeUser }}>
+    <AppContext.Provider value={{ users, openCP, setOpenCP, setActiveUser, messages, activeUser }}>
       {props.children}
     </AppContext.Provider>
   );
