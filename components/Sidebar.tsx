@@ -3,7 +3,7 @@ import { Plus } from "tabler-icons-react";
 
 function Sidebar() {
   return (
-    <div className="fixed top-0 left-0 h-screen w-[70px] py-5 flex flex-col bg-gray-900 shadow-lg">
+    <div className="fixed top-0 left-0 h-screen w-[70px] py-5 flex flex-col bg-[#202225] shadow-lg">
       <SideBarIcon text="Direct Messages" active>
         <svg
           width="28px"
