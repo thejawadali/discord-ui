@@ -1,32 +1,44 @@
 import React from "react";
 import { Users as UserIcon, Plus } from "tabler-icons-react";
-import { IUser, useAppStore } from "../hooks/app.provider"
+import { IUser, useAppStore } from "../hooks/app.provider";
 
 function ChannelBlock() {
-  const appStore = useAppStore()
+  const appStore = useAppStore();
 
   return (
-    <div className="bg-[#2f3136] left-[70px] inset-y-0 w-64 h-screen pt-10 fixed px-2">
-      <UserButton text="Friends">
-        <UserIcon className="w-5 h-5" />
-      </UserButton>
-      <div className="mt-4 hover:text-gray-300 text-gray-400 flex text-sm items-center justify-between mx-4">
-        <span>Direct Messages</span>
-        <Plus className="w-4 h-4" />
+    <div className="bg-[#2f3136] left-[70px] inset-y-0 w-64 h-screen fixed">
+      <div className="w-full py-3 border-b border-gray-900">
+        <button onClick={() => appStore.setOpenCP(true)} className="flex items-center text-sm text-gray-300 mx-auto justify-center bg-[#202225] rounded overflow-hidden py-1 px-4">
+          Find or start a conversation
+        </button>
       </div>
-      <div className="space-y-1 overflow-y-auto">
-        {appStore.users.map((user: IUser) => (
-          <UserButton onClick={() => appStore.setActiveUser(user)} key={user.id} text={user.name} active={user.id === appStore.activeUser.id}>
-            <span className="inline-block relative h-7 w-7 rounded-full bg-gray-100">
-              <span className="text-xs font-medium leading-none text-gray-800">
-                {user.name.split("")[0]}
+      <div className="m-2">
+        <UserButton text="Friends">
+          <UserIcon className="w-5 h-5" />
+        </UserButton>
+        <div className="mt-4 hover:text-gray-300 text-gray-400 flex text-sm items-center justify-between mx-4">
+          <span>Direct Messages</span>
+          <Plus className="w-4 h-4" />
+        </div>
+        <div className="space-y-1 overflow-y-auto">
+          {appStore.users.map((user: IUser) => (
+            <UserButton
+              onClick={() => appStore.setActiveUser(user)}
+              key={user.id}
+              text={user.name}
+              active={user.id === appStore.activeUser.id}
+            >
+              <span className="inline-block relative h-7 w-7 rounded-full bg-gray-100">
+                <span className="text-xs font-medium leading-none text-gray-800">
+                  {user.name.split("")[0]}
+                </span>
+                {user.online && (
+                  <span className="absolute bottom-0 right-0 block h-2 w-2 z-20 rounded-full bg-green-600 ring-2 group-hover:ring-[#36393F] ring-[#2f3136]" />
+                )}
               </span>
-              {user.online && (
-                <span className="absolute bottom-0 right-0 block h-2 w-2 z-20 rounded-full bg-green-600 ring-2 group-hover:ring-[#36393F] ring-[#2f3136]" />
-              )}
-            </span>
-          </UserButton>
-        ))}
+            </UserButton>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -38,11 +50,12 @@ interface userButtonProps {
   children: any;
   text?: string;
   active?: boolean;
-  onClick?: any
+  onClick?: any;
 }
 
-const UserButton = ({onClick, children, text, active }: userButtonProps) => (
-  <button onClick={onClick}
+const UserButton = ({ onClick, children, text, active }: userButtonProps) => (
+  <button
+    onClick={onClick}
     className={`flex group text-gray-400 ${
       active
         ? "text-gray-300 gap-x-2 bg-[#36393F]"

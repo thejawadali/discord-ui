@@ -23,7 +23,7 @@ export const AppProvider = (props: any) => {
     { name: "Karen", id: 11, online: false },
   ]);
 
-  const [openCP, setOpenCP] = useState<boolean>(true)
+  const [openCP, setOpenCP] = useState<boolean>(false)
 
   const messages = [
     {
