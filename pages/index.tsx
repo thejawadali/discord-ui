@@ -6,7 +6,7 @@ import Sidebar from "../components/Sidebar"
 
 export default function Home() {
   return (
-    <div className="flex relative bg-[#36393F]">
+    <div className="flex bg-[#36393F]">
       <Sidebar />
       <ChannelBlock />
       <InboxBody/>
