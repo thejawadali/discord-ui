@@ -47,7 +47,7 @@ interface sidebarIconProps {
 const SideBarIcon = (props: sidebarIconProps) => (
   <div className={`group relative flex items-center justify-center my-2 w-12 h-12 mx-auto ${props.active ? 'text-white rounded-xl bg-[#5865F2]' : 'hover:text-white hover:rounded-xl hover:bg-[#5865F2]'} bg-gray-600  dark:bg-gray-800 text-green-500  rounded-3xl transition-all duration-200 ease-linear cursor-pointer shadow-lg`}>
     {props.children}
-    <span className="sidebar-tooltip group-hover:scale-100">{props.text}</span>
+    {/* <span className="sidebar-tooltip group-hover:scale-100">{props.text}</span> */}
   </div>
 );
 

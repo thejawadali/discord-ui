@@ -3,7 +3,7 @@ import { PhoneCall, Video, Pin, UserPlus, Search, Inbox, QuestionMark } from "ta
 
 function Navbar() {
   return (
-    <div className="w-full py-3 px-5 border-b border-gray-900 flex justify-between items-center">
+    <div className="w-full sticky inset-0 bg-[#36393F] py-3 px-5 border-b border-gray-900 flex justify-between items-center">
       <div className="flex items-center gap-x-2">
         <span className="flex items-center justify-center h-7 w-7 rounded-full bg-gray-100">
             A
